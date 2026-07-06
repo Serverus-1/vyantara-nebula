@@ -354,7 +354,7 @@ function WorldMap() {
           title="One network. Every continent."
           desc="150+ edge locations and a 10 Tbps private backbone deliver sub-30ms latency to 95% of internet users."
         />
-        <div className="mt-14 relative rounded-3xl glass-strong overflow-hidden p-6 sm:p-10">
+        <div className="mt-14 relative rounded-3xl glass-strong overflow-hidden p-6 sm:p-10 vy-reveal-unfold">
           <div className="relative aspect-[2/1] w-full">
             {/* Faint continents grid */}
             <div className="absolute inset-0 opacity-40 grid-bg" />
