@@ -435,15 +435,14 @@ function Pricing() {
           title="Transparent, premium, no lock-in"
           desc="Simple monthly plans. Cancel anytime. Every plan includes anti-DDoS, backups and 24/7 expert support."
         />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((p, i) => (
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 vy-price-grid">
+          {plans.map((p) => (
             <div
               key={p.name}
               className={[
-                "relative rounded-3xl p-8 animate-fade-up",
-                p.featured ? "glass-strong animated-border" : "glass",
+                "vy-price-card relative rounded-3xl p-8",
+                p.featured ? "glass-strong animated-border is-featured" : "glass",
               ].join(" ")}
-              style={{ animationDelay: `${i * 100}ms` }}
             >
               {p.featured && (
                 <div
