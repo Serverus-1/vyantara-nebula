@@ -232,12 +232,11 @@ function Services() {
           title="A complete infrastructure suite"
           desc="From micro-VMs to full-metal machines — every product is engineered to the same premium standard."
         />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((s, i) => (
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 vy-stagger">
+          {services.map((s) => (
             <div
               key={s.title}
-              className="group relative rounded-2xl glass p-6 hover-lift hover:[--tw:none] animate-fade-up"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="group relative rounded-2xl glass p-6 hover-lift vy-reveal-tilt"
               onMouseEnter={(e) => e.currentTarget.classList.add("hover-lift-hover")}
               onMouseLeave={(e) => e.currentTarget.classList.remove("hover-lift-hover")}
             >
