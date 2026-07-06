@@ -232,12 +232,11 @@ function Services() {
           title="A complete infrastructure suite"
           desc="From micro-VMs to full-metal machines — every product is engineered to the same premium standard."
         />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((s, i) => (
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 vy-stagger">
+          {services.map((s) => (
             <div
               key={s.title}
-              className="group relative rounded-2xl glass p-6 hover-lift hover:[--tw:none] animate-fade-up"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="group relative rounded-2xl glass p-6 hover-lift vy-reveal-tilt"
               onMouseEnter={(e) => e.currentTarget.classList.add("hover-lift-hover")}
               onMouseLeave={(e) => e.currentTarget.classList.remove("hover-lift-hover")}
             >
@@ -297,12 +296,11 @@ function Why() {
           title="Engineered without compromise"
           desc="Every layer of the stack — silicon, storage, network, software — is chosen for one thing: performance."
         />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f, i) => (
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 vy-stagger">
+          {features.map((f) => (
             <div
               key={f.title}
-              className="group relative rounded-2xl glass p-6 overflow-hidden animate-fade-up"
-              style={{ animationDelay: `${i * 70}ms` }}
+              className="group relative rounded-2xl glass p-6 overflow-hidden vy-reveal-rise"
             >
               <div
                 className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full opacity-0 group-hover:opacity-100 transition"
@@ -356,7 +354,7 @@ function WorldMap() {
           title="One network. Every continent."
           desc="150+ edge locations and a 10 Tbps private backbone deliver sub-30ms latency to 95% of internet users."
         />
-        <div className="mt-14 relative rounded-3xl glass-strong overflow-hidden p-6 sm:p-10">
+        <div className="mt-14 relative rounded-3xl glass-strong overflow-hidden p-6 sm:p-10 vy-reveal-unfold">
           <div className="relative aspect-[2/1] w-full">
             {/* Faint continents grid */}
             <div className="absolute inset-0 opacity-40 grid-bg" />
@@ -435,15 +433,14 @@ function Pricing() {
           title="Transparent, premium, no lock-in"
           desc="Simple monthly plans. Cancel anytime. Every plan includes anti-DDoS, backups and 24/7 expert support."
         />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((p, i) => (
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 vy-price-grid">
+          {plans.map((p) => (
             <div
               key={p.name}
               className={[
-                "relative rounded-3xl p-8 animate-fade-up",
-                p.featured ? "glass-strong animated-border" : "glass",
+                "vy-price-card relative rounded-3xl p-8",
+                p.featured ? "glass-strong animated-border is-featured" : "glass",
               ].join(" ")}
-              style={{ animationDelay: `${i * 100}ms` }}
             >
               {p.featured && (
                 <div
@@ -576,7 +573,7 @@ function CTA() {
   return (
     <section className="relative py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-16 text-center">
+        <div className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-16 text-center vy-reveal-unfold">
           <div
             className="absolute inset-0 opacity-70"
             style={{
@@ -679,13 +676,13 @@ function SectionHeader({
 }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-gold-gradient font-semibold">
+      <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-gold-gradient font-semibold vy-reveal">
         {eyebrow}
       </div>
-      <h2 className="mt-4 font-display text-3xl sm:text-5xl font-semibold text-silver-gradient leading-[1.1]">
+      <h2 className="mt-4 font-display text-3xl sm:text-5xl font-semibold text-silver-gradient leading-[1.1] vy-section-title">
         {title}
       </h2>
-      {desc && <p className="mt-4 text-base text-muted-foreground">{desc}</p>}
+      {desc && <p className="mt-4 text-base text-muted-foreground vy-reveal-blur">{desc}</p>}
     </div>
   );
 }

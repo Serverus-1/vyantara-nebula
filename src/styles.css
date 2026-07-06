@@ -341,3 +341,159 @@
   animation: shimmer 2.2s linear infinite;
 }
 
+/* ═════════ Scroll-linked progressive reveals (native CSS scroll timelines) ═════════
+   Unique, no library. Uses view() timeline: animation progress = element's
+   visibility progress through viewport. Falls back to visible state on
+   browsers without support (Safari <17.4). */
+
+@supports (animation-timeline: view()) {
+  /* Baseline: hidden until enter timeline drives it */
+  .vy-reveal,
+  .vy-reveal-rise,
+  .vy-reveal-tilt,
+  .vy-reveal-unfold,
+  .vy-reveal-slide-l,
+  .vy-reveal-slide-r,
+  .vy-reveal-blur,
+  .vy-price-card {
+    animation-timeline: view();
+    animation-range: entry 5% cover 35%;
+    animation-fill-mode: both;
+  }
+
+  .vy-reveal { animation-name: vyReveal; }
+  .vy-reveal-rise { animation-name: vyRevealRise; }
+  .vy-reveal-tilt { animation-name: vyRevealTilt; }
+  .vy-reveal-unfold { animation-name: vyRevealUnfold; }
+  .vy-reveal-slide-l { animation-name: vyRevealSlideL; }
+  .vy-reveal-slide-r { animation-name: vyRevealSlideR; }
+  .vy-reveal-blur { animation-name: vyRevealBlur; }
+
+  /* Section headers: unfold + defocus → focus */
+  .vy-section-title {
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+    animation-name: vySectionTitle;
+    animation-fill-mode: both;
+  }
+
+  /* Stagger via nth-child delay offsets on animation-range */
+  .vy-stagger > *:nth-child(1) { animation-range: entry 0%  cover 30%; }
+  .vy-stagger > *:nth-child(2) { animation-range: entry 8%  cover 38%; }
+  .vy-stagger > *:nth-child(3) { animation-range: entry 16% cover 46%; }
+  .vy-stagger > *:nth-child(4) { animation-range: entry 24% cover 54%; }
+  .vy-stagger > *:nth-child(5) { animation-range: entry 32% cover 62%; }
+  .vy-stagger > *:nth-child(6) { animation-range: entry 40% cover 70%; }
+}
+
+@keyframes vyReveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes vyRevealRise {
+  from { opacity: 0; transform: translateY(60px) scale(0.96); filter: blur(6px); }
+  60%  { opacity: 1; filter: blur(0); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes vyRevealTilt {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) translateY(80px) rotateX(18deg) rotateZ(-2deg);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) translateY(0) rotateX(0deg) rotateZ(0deg);
+    filter: blur(0);
+  }
+}
+@keyframes vyRevealUnfold {
+  from { opacity: 0; clip-path: inset(0 50% 0 50% round 24px); transform: translateY(20px); }
+  to   { opacity: 1; clip-path: inset(0 0 0 0 round 24px); transform: translateY(0); }
+}
+@keyframes vyRevealSlideL {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes vyRevealSlideR {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes vyRevealBlur {
+  from { opacity: 0; filter: blur(20px) saturate(0.4); }
+  to   { opacity: 1; filter: blur(0) saturate(1); }
+}
+@keyframes vySectionTitle {
+  from {
+    opacity: 0;
+    letter-spacing: 0.1em;
+    filter: blur(12px);
+    transform: translateY(30px);
+  }
+  60% { opacity: 1; filter: blur(0); }
+  to {
+    opacity: 1;
+    letter-spacing: normal;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* ───────── Pricing cards: cinematic scroll-lock reveal ─────────
+   Cards rise from below with staggered 3D tilt, unfold gradient border,
+   featured card gets an extra parallax lift. Fully scroll-linked. */
+@supports (animation-timeline: view()) {
+  .vy-price-grid { perspective: 1600px; }
+
+  .vy-price-card {
+    transform-origin: 50% 100%;
+    animation-range: entry 0% cover 55%;
+    animation-name: vyPriceRise;
+    will-change: transform, opacity, filter;
+  }
+  .vy-price-grid > .vy-price-card:nth-child(1) { animation-range: entry 0%  cover 45%; }
+  .vy-price-grid > .vy-price-card:nth-child(2) { animation-range: entry 6%  cover 52%; }
+  .vy-price-grid > .vy-price-card:nth-child(3) { animation-range: entry 12% cover 58%; }
+
+  .vy-price-card.is-featured { animation-name: vyPriceRiseFeatured; }
+}
+@keyframes vyPriceRise {
+  from {
+    opacity: 0;
+    transform: perspective(1600px) translateY(140px) translateZ(-140px) rotateX(22deg);
+    filter: blur(10px) brightness(0.7);
+  }
+  55% { opacity: 1; filter: blur(0) brightness(1); }
+  to {
+    opacity: 1;
+    transform: perspective(1600px) translateY(0) translateZ(0) rotateX(0deg);
+    filter: blur(0) brightness(1);
+  }
+}
+@keyframes vyPriceRiseFeatured {
+  from {
+    opacity: 0;
+    transform: perspective(1600px) translateY(160px) translateZ(-80px) rotateX(20deg) scale(0.9);
+    filter: blur(14px) brightness(0.6);
+  }
+  55% { opacity: 1; filter: blur(0) brightness(1.05); }
+  to {
+    opacity: 1;
+    transform: perspective(1600px) translateY(-8px) translateZ(20px) rotateX(0deg) scale(1.02);
+    filter: blur(0) brightness(1);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .vy-reveal, .vy-reveal-rise, .vy-reveal-tilt, .vy-reveal-unfold,
+  .vy-reveal-slide-l, .vy-reveal-slide-r, .vy-reveal-blur,
+  .vy-section-title, .vy-price-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+}
+
