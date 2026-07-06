@@ -296,12 +296,11 @@ function Why() {
           title="Engineered without compromise"
           desc="Every layer of the stack — silicon, storage, network, software — is chosen for one thing: performance."
         />
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f, i) => (
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 vy-stagger">
+          {features.map((f) => (
             <div
               key={f.title}
-              className="group relative rounded-2xl glass p-6 overflow-hidden animate-fade-up"
-              style={{ animationDelay: `${i * 70}ms` }}
+              className="group relative rounded-2xl glass p-6 overflow-hidden vy-reveal-rise"
             >
               <div
                 className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full opacity-0 group-hover:opacity-100 transition"
