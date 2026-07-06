@@ -679,13 +679,13 @@ function SectionHeader({
 }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-gold-gradient font-semibold">
+      <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-gold-gradient font-semibold vy-reveal">
         {eyebrow}
       </div>
-      <h2 className="mt-4 font-display text-3xl sm:text-5xl font-semibold text-silver-gradient leading-[1.1]">
+      <h2 className="mt-4 font-display text-3xl sm:text-5xl font-semibold text-silver-gradient leading-[1.1] vy-section-title">
         {title}
       </h2>
-      {desc && <p className="mt-4 text-base text-muted-foreground">{desc}</p>}
+      {desc && <p className="mt-4 text-base text-muted-foreground vy-reveal-blur">{desc}</p>}
     </div>
   );
 }
