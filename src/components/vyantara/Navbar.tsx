@@ -38,13 +38,16 @@ export function Navbar() {
         ].join(" ")}
         style={{ marginLeft: "1rem", marginRight: "1rem" }}
       >
-        <a href="#home" className="flex items-center gap-3 group">
-          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden ring-1 ring-white/10">
-            <img src={logo.url} alt="Vyantara" className="h-full w-full object-cover" />
-            <span className="absolute inset-0 rounded-lg shadow-glow-gold opacity-0 group-hover:opacity-100 transition" />
+        <a href="#home" className="flex items-center gap-3 group vy-logo-wrap">
+          <span className="vy-logo-mark relative inline-flex h-10 w-10 items-center justify-center">
+            <span className="vy-logo-orbit" aria-hidden />
+            <span className="vy-logo-squircle">
+              <img src={logo.url} alt="Vyantara" className="h-full w-full object-cover vy-logo-img" />
+              <span className="vy-logo-sheen" aria-hidden />
+            </span>
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-semibold tracking-wide text-silver-gradient">
+            <span className="font-display text-base font-semibold tracking-wide text-silver-gradient vy-logo-text">
               VYANTARA
             </span>
             <span className="text-[10px] tracking-[0.3em] text-gold-gradient font-medium">
