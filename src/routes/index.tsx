@@ -573,7 +573,7 @@ function CTA() {
   return (
     <section className="relative py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-16 text-center">
+        <div className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-16 text-center vy-reveal-unfold">
           <div
             className="absolute inset-0 opacity-70"
             style={{
