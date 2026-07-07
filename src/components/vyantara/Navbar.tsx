@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/vyantara-emblem.jpg.asset.json";
+import logo from "@/assets/vyantaralogo.jpg";
 
 const links = [
   { label: "Home", href: "#home" },
