@@ -439,7 +439,7 @@ function Pricing() {
               key={p.name}
               className={[
                 "vy-price-card relative rounded-3xl p-8",
-                p.featured ? "glass-strong animated-border is-featured" : "glass",
+                p.featured ? "glass-strong vy-featured-card is-featured" : "glass",
               ].join(" ")}
             >
               {p.featured && (
