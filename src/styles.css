@@ -232,60 +232,36 @@
   pointer-events: none;
 }
 
-/* ————————— Featured pricing card: clean gold border + soft aura ————————— */
+/* ————————— Featured pricing card: clean single gold border + soft aura ————————— */
 .vy-featured-card {
   position: relative;
   isolation: isolate;
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  border: 1px solid rgba(212, 175, 55, 0.45);
   box-shadow:
     0 30px 80px -30px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(212, 175, 55, 0.08),
-    0 0 40px -10px rgba(212, 175, 55, 0.25);
+    0 0 40px -12px rgba(212, 175, 55, 0.35);
   transition: box-shadow 0.5s ease, border-color 0.5s ease;
-}
-.vy-featured-card::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    145deg,
-    rgba(244, 228, 161, 0.9) 0%,
-    rgba(212, 175, 55, 0.5) 30%,
-    rgba(212, 175, 55, 0.05) 55%,
-    rgba(212, 175, 55, 0.35) 85%,
-    rgba(244, 228, 161, 0.7) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0.9;
 }
 .vy-featured-card::after {
   content: "";
   position: absolute;
-  inset: -30px;
+  inset: -40px;
   z-index: -1;
   border-radius: inherit;
-  background: radial-gradient(60% 55% at 50% 0%, rgba(212, 175, 55, 0.18), transparent 70%);
+  background: radial-gradient(55% 50% at 50% 0%, rgba(212, 175, 55, 0.22), transparent 70%);
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.75;
   animation: vyFeaturedGlow 6s ease-in-out infinite;
 }
 .vy-featured-card:hover {
-  border-color: rgba(212, 175, 55, 0.55);
+  border-color: rgba(212, 175, 55, 0.7);
   box-shadow:
     0 40px 100px -30px rgba(0, 0, 0, 0.75),
-    0 0 0 1px rgba(212, 175, 55, 0.15),
-    0 0 60px -8px rgba(212, 175, 55, 0.4);
+    0 0 60px -10px rgba(212, 175, 55, 0.5);
 }
 @keyframes vyFeaturedGlow {
-  0%, 100% { opacity: 0.55; }
-  50%      { opacity: 0.95; }
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.9; }
 }
 
 /* ————————— Vyantara logo mark ————————— */
