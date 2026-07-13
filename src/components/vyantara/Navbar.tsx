@@ -42,7 +42,7 @@ export function Navbar() {
           <span className="vy-logo-mark relative inline-flex h-10 w-10 items-center justify-center">
             <span className="vy-logo-orbit" aria-hidden />
             <span className="vy-logo-squircle">
-              <img src={(logo as unknown as { url: string }).url} alt="Vyantara" className="h-full w-full object-cover vy-logo-img" />
+              <img src={logo} alt="Vyantara" className="h-full w-full object-cover vy-logo-img" />
               <span className="vy-logo-sheen" aria-hidden />
             </span>
           </span>
