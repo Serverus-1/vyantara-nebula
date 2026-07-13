@@ -55,7 +55,7 @@ function ServerVisual() {
             }}
           />
           <img
-            src={emblem.url}
+            src={emblem}
             alt="Vyantara emblem"
             className="relative h-64 w-64 object-contain drop-shadow-[0_20px_60px_rgba(212,175,55,0.35)]"
           />
