@@ -19,9 +19,8 @@ import {
 import { AuroraBackground, Particles } from "@/components/vyantara/Background";
 import { Navbar } from "@/components/vyantara/Navbar";
 import { Counter } from "@/components/vyantara/Counter";
-import emblem from "@/assets/vyantara-emblem.jpg.asset.json";
-import horizontal from "@/assets/vyantara-horizontal.jpg.asset.json";
-
+import emblem from "@/assets/vyantara-emblem.jpg";
+import horizontal from "@/assets/vyantara-horizontal.jpg";
 export const Route = createFileRoute("/")({
   component: Index,
 });
