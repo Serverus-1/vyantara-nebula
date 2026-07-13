@@ -620,7 +620,7 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           <div className="col-span-2">
-            <img src={horizontal.url} alt="Vyantara Hosting" className="h-12 w-auto object-contain" />
+            <img src={horizontal} alt="Vyantara Hosting" className="h-12 w-auto object-contain" />
             <p className="mt-4 text-sm text-muted-foreground max-w-xs">
               Premium infrastructure engineered for teams that don't settle. Cloud, game, dedicated & web hosting.
             </p>
